@@ -7,5 +7,6 @@ data class Category(
     val icon : String,
     val color : String,
     val isDefault : Boolean = false,
-    val createdAt : Long
+    val createdAt : Long,
+    val isActive : Boolean = true
 )

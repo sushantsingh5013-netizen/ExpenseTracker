@@ -26,7 +26,7 @@ interface TransactionDao{
     fun getTransactionsByCategory(categoryId : String) : Flow<List<TransactionEntity>>
 
     @Query("Select * from transactions where date between :startDate and :endDate order by date desc")
-    fun getTransactionsByDateRange(startDate : Long, endDate : Long)
+    fun getTransactionsByDateRange(startDate : Long, endDate : Long) : Flow<List<TransactionEntity>>
 
     @Query("Select * from transactions where type = :type Order by date desc")
     fun getTransactionByType(type : TransactionType) : Flow<List<TransactionEntity>>
@@ -34,6 +34,6 @@ interface TransactionDao{
     @Query("Delete from transactions")
     suspend fun clearAll()
 
-    @Query("Select * from transactions where ")
-    suspend fun getTotalIncome() : Flow<List<TransactionEntity>>
+    @Query("Select coalesce(sum(amount), 0) from transactions where type = :type")
+    fun getTotalByType(type : TransactionType) : Flow<Long>
 }

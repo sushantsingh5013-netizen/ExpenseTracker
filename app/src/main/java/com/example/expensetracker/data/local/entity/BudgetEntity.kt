@@ -16,7 +16,8 @@ data class BudgetEntity(
     val amount : Long,
     val categoryId : String?,
     val period : BudgetPeriod,
-    val startDate : Long? = null,
+    val startDate : Long,
+    val endDate : Long ? = null,
     val createdAt : Long,
     val isActive : Boolean = true
 )
