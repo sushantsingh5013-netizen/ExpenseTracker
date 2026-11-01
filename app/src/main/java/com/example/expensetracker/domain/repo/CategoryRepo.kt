@@ -12,7 +12,7 @@ interface CategoryRepo {
 
     fun getAllCategories() : Flow<List<Category>>
 
-    suspend fun getCategoryById(id : String) : Category?
+    suspend fun getCategoryById(id: String) : Category?
 
     fun getCategoriesByType(type : TransactionType) : Flow<List<Category>>
 
