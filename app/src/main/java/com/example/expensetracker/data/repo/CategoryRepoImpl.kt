@@ -31,7 +31,7 @@ class CategoryRepoImpl @Inject constructor(
             }
     }
 
-    override suspend fun getCategoryById(id: String?): Category? {
+    override suspend fun getCategoryById(id: String): Category? {
         return categoryDao.getCategoryById(id)?.toDomain()
     }
 
